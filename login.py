@@ -702,6 +702,8 @@ if user_type == "user" or user_type == "admin":
 
                     elif choice == "2":
                         try:
+                            cursor.execute("DROP DATABASE IF EXISTS cooking_contest")
+                            cursor.execute("CREATE DATABASE cooking_contest")
                             subprocess.run([r"C:\xampp\mysql\bin\mysql.exe", '-u', 'root', '-p', 'cooking_contest', '<', 'backup.sql'], shell=True, check=True)
                             print("Restore completed successfully.")
                         except subprocess.CalledProcessError as e:
