@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Εξυπηρετητής: 127.0.0.1
--- Χρόνος δημιουργίας: 20 Μάη 2024 στις 17:41:37
+-- Χρόνος δημιουργίας: 21 Μάη 2024 στις 15:04:57
 -- Έκδοση διακομιστή: 10.4.32-MariaDB
 -- Έκδοση PHP: 8.2.12
 
@@ -431,7 +431,7 @@ INSERT INTO `chef_cuisines` (`chef_id`, `cuisine_id`) VALUES
 CREATE TABLE `competitionparticipants` (
   `participant_id` int(11) NOT NULL,
   `episode_id` int(11) NOT NULL,
-  `chef_id` int(11) DEFAULT NULL,
+  `chef_id` int(11) NOT NULL,
   `recipe_id` int(11) DEFAULT NULL,
   `is_judge` tinyint(1) DEFAULT 0,
   `judge_id` int(11) DEFAULT NULL
@@ -1341,10 +1341,10 @@ DELIMITER $$
 CREATE TRIGGER `increment_episode_number` BEFORE INSERT ON `episode` FOR EACH ROW BEGIN
     DECLARE next_episode_number INT;
 
-    -- Find the next episode number
+    
     SELECT COALESCE(MAX(episode_number), 0) + 1 INTO next_episode_number FROM episode;
 
-    -- Set the episode_number for the new row
+    
     SET NEW.episode_number = next_episode_number;
 END
 $$
@@ -1479,7 +1479,7 @@ INSERT INTO `images` (`image_id`, `image_blob`, `description`) VALUES
 CREATE TABLE `ingredients` (
   `ingredient_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `food_category_id` int(11) DEFAULT NULL,
+  `food_category_id` int(11) NOT NULL,
   `calories` int(11) NOT NULL,
   `image_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -1648,7 +1648,7 @@ INSERT INTO `ingredients` (`ingredient_id`, `name`, `food_category_id`, `calorie
 
 CREATE TABLE `judges` (
   `judge_id` int(11) NOT NULL,
-  `chef_id` int(11) DEFAULT NULL,
+  `chef_id` int(11) NOT NULL,
   `episode_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -3820,7 +3820,7 @@ CREATE TABLE `recipe` (
   `recipe_type` enum('cooking','pastry') NOT NULL,
   `cuisine_id` int(11) NOT NULL,
   `image_id` int(11) DEFAULT NULL,
-  `time_id` int(11) DEFAULT NULL
+  `time_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -3891,7 +3891,7 @@ INSERT INTO `recipe` (`recipe_id`, `name`, `difficulty`, `description`, `base_id
 (116, 'Apple Crumble', '2', 'Warm apple crumble recipe with a crispy oat topping.', 208, 'pastry', 5, NULL, 24),
 (117, 'Pasta Carbonara', '3', 'Creamy pasta carbonara recipe with bacon and Parmesan cheese.', 6, 'cooking', 1, NULL, 10),
 (118, 'Lemonade', '1', 'Refreshing homemade lemonade recipe with fresh lemon juice and simple syrup.', 209, 'pastry', 10, NULL, 5),
-(119, 'Stuffed Peppers', '3', 'Savory stuffed peppers recipe with ground beef, rice, and cheese.', 7, 'cooking', 6, NULL, 23),
+(119, 'Stuffed Peppers', '5', 'Savory stuffed peppers recipe with ground beef, rice, and cheese.', 7, 'cooking', 6, NULL, 23),
 (120, 'Creme Brulee', '4', 'Rich and creamy creme brulee recipe with a caramelized sugar topping.', 210, 'pastry', 3, NULL, 16),
 (126, 'Mushroom Risotto', '3', 'Creamy mushroom risotto recipe with Arborio rice and Parmesan cheese.', 8, 'cooking', 12, NULL, 19),
 (127, 'Chocolate Mousse', '3', 'Decadent chocolate mousse recipe with whipped cream and chocolate shavings.', 211, 'pastry', 15, NULL, 13),
@@ -6266,10 +6266,10 @@ INSERT INTO `sections` (`section_id`, `name`, `description`, `image_id`) VALUES
 CREATE TABLE `steps` (
   `steps_id` int(11) NOT NULL,
   `recipe_id` int(11) NOT NULL,
-  `equipment_id` int(11) DEFAULT NULL,
+  `equipment_id` int(11) NOT NULL,
   `sequence_order` int(11) NOT NULL,
   `step_description` text NOT NULL,
-  `amount` int(11) DEFAULT NULL,
+  `amount` int(11) NOT NULL,
   `image_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -6541,8 +6541,8 @@ INSERT INTO `steps` (`steps_id`, `recipe_id`, `equipment_id`, `sequence_order`, 
 
 CREATE TABLE `time` (
   `new_time_id` int(11) NOT NULL,
-  `preparation_time` int(11) DEFAULT NULL,
-  `cooking_time` int(11) DEFAULT NULL
+  `preparation_time` int(11) NOT NULL,
+  `cooking_time` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -6787,7 +6787,8 @@ ALTER TABLE `chef`
   ADD PRIMARY KEY (`chef_id`),
   ADD UNIQUE KEY `tel_number` (`tel_number`),
   ADD UNIQUE KEY `user_id` (`user_id`) USING BTREE,
-  ADD KEY `image_id` (`image_id`);
+  ADD KEY `image_id` (`image_id`),
+  ADD KEY `age` (`age`);
 
 --
 -- Ευρετήρια για πίνακα `chef_cuisines`
@@ -6819,7 +6820,8 @@ ALTER TABLE `cuisines`
 --
 ALTER TABLE `episode`
   ADD PRIMARY KEY (`episode_id`),
-  ADD UNIQUE KEY `episode_number` (`episode_number`);
+  ADD UNIQUE KEY `episode_number` (`episode_number`),
+  ADD KEY `date` (`date`);
 
 --
 -- Ευρετήρια για πίνακα `equipment`
