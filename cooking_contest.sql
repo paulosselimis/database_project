@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Εξυπηρετητής: 127.0.0.1
--- Χρόνος δημιουργίας: 21 Μάη 2024 στις 15:31:23
--- Έκδοση διακομιστή: 10.4.32-MariaDB
--- Έκδοση PHP: 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: May 22, 2024 at 08:20 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Βάση δεδομένων: `cooking_contest`
+-- Database: `cooking_contest`
 --
 
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -33,7 +33,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`admin_id`, `user_id`) VALUES
@@ -42,7 +42,7 @@ INSERT INTO `admin` (`admin_id`, `user_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `chef`
+-- Table structure for table `chef`
 --
 
 CREATE TABLE `chef` (
@@ -59,7 +59,7 @@ CREATE TABLE `chef` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `chef`
+-- Dumping data for table `chef`
 --
 
 INSERT INTO `chef` (`chef_id`, `first_name`, `last_name`, `tel_number`, `date_of_birth`, `age`, `years_of_experience`, `prof_certification`, `image_id`, `user_id`) VALUES
@@ -137,7 +137,7 @@ INSERT INTO `chef` (`chef_id`, `first_name`, `last_name`, `tel_number`, `date_of
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `chef_cuisines`
+-- Table structure for table `chef_cuisines`
 --
 
 CREATE TABLE `chef_cuisines` (
@@ -146,7 +146,7 @@ CREATE TABLE `chef_cuisines` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `chef_cuisines`
+-- Dumping data for table `chef_cuisines`
 --
 
 INSERT INTO `chef_cuisines` (`chef_id`, `cuisine_id`) VALUES
@@ -425,7 +425,7 @@ INSERT INTO `chef_cuisines` (`chef_id`, `cuisine_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `competitionparticipants`
+-- Table structure for table `competitionparticipants`
 --
 
 CREATE TABLE `competitionparticipants` (
@@ -438,7 +438,7 @@ CREATE TABLE `competitionparticipants` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `competitionparticipants`
+-- Dumping data for table `competitionparticipants`
 --
 
 INSERT INTO `competitionparticipants` (`participant_id`, `episode_id`, `chef_id`, `recipe_id`, `is_judge`, `judge_id`) VALUES
@@ -1226,7 +1226,7 @@ INSERT INTO `competitionparticipants` (`participant_id`, `episode_id`, `chef_id`
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `cuisines`
+-- Table structure for table `cuisines`
 --
 
 CREATE TABLE `cuisines` (
@@ -1236,7 +1236,7 @@ CREATE TABLE `cuisines` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `cuisines`
+-- Dumping data for table `cuisines`
 --
 
 INSERT INTO `cuisines` (`cuisine_id`, `name`, `image_id`) VALUES
@@ -1259,7 +1259,7 @@ INSERT INTO `cuisines` (`cuisine_id`, `name`, `image_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `episode`
+-- Table structure for table `episode`
 --
 
 CREATE TABLE `episode` (
@@ -1269,7 +1269,7 @@ CREATE TABLE `episode` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `episode`
+-- Dumping data for table `episode`
 --
 
 INSERT INTO `episode` (`episode_id`, `episode_number`, `date`) VALUES
@@ -1335,7 +1335,7 @@ INSERT INTO `episode` (`episode_id`, `episode_number`, `date`) VALUES
 (60, 60, '2023-10-01');
 
 --
--- Δείκτες `episode`
+-- Triggers `episode`
 --
 DELIMITER $$
 CREATE TRIGGER `increment_episode_number` BEFORE INSERT ON `episode` FOR EACH ROW BEGIN
@@ -1353,7 +1353,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `equipment`
+-- Table structure for table `equipment`
 --
 
 CREATE TABLE `equipment` (
@@ -1364,7 +1364,7 @@ CREATE TABLE `equipment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `equipment`
+-- Dumping data for table `equipment`
 --
 
 INSERT INTO `equipment` (`equipment_id`, `name`, `usage_instructions`, `image_id`) VALUES
@@ -1407,7 +1407,7 @@ INSERT INTO `equipment` (`equipment_id`, `name`, `usage_instructions`, `image_id
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `food_category`
+-- Table structure for table `food_category`
 --
 
 CREATE TABLE `food_category` (
@@ -1418,7 +1418,7 @@ CREATE TABLE `food_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `food_category`
+-- Dumping data for table `food_category`
 --
 
 INSERT INTO `food_category` (`food_category_id`, `name`, `description`, `image_id`) VALUES
@@ -1438,7 +1438,7 @@ INSERT INTO `food_category` (`food_category_id`, `name`, `description`, `image_i
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `images`
+-- Table structure for table `images`
 --
 
 CREATE TABLE `images` (
@@ -1448,7 +1448,7 @@ CREATE TABLE `images` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `images`
+-- Dumping data for table `images`
 --
 
 INSERT INTO `images` (`image_id`, `image_blob`, `description`) VALUES
@@ -1473,7 +1473,7 @@ INSERT INTO `images` (`image_id`, `image_blob`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `ingredients`
+-- Table structure for table `ingredients`
 --
 
 CREATE TABLE `ingredients` (
@@ -1485,7 +1485,7 @@ CREATE TABLE `ingredients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `ingredients`
+-- Dumping data for table `ingredients`
 --
 
 INSERT INTO `ingredients` (`ingredient_id`, `name`, `food_category_id`, `calories`, `image_id`) VALUES
@@ -1643,7 +1643,7 @@ INSERT INTO `ingredients` (`ingredient_id`, `name`, `food_category_id`, `calorie
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `judges`
+-- Table structure for table `judges`
 --
 
 CREATE TABLE `judges` (
@@ -1653,7 +1653,7 @@ CREATE TABLE `judges` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `judges`
+-- Dumping data for table `judges`
 --
 
 INSERT INTO `judges` (`judge_id`, `chef_id`, `episode_id`) VALUES
@@ -1841,7 +1841,7 @@ INSERT INTO `judges` (`judge_id`, `chef_id`, `episode_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `label`
+-- Table structure for table `label`
 --
 
 CREATE TABLE `label` (
@@ -1850,7 +1850,7 @@ CREATE TABLE `label` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `label`
+-- Dumping data for table `label`
 --
 
 INSERT INTO `label` (`label_id`, `name`) VALUES
@@ -1878,7 +1878,7 @@ INSERT INTO `label` (`label_id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `meal_type`
+-- Table structure for table `meal_type`
 --
 
 CREATE TABLE `meal_type` (
@@ -1887,7 +1887,7 @@ CREATE TABLE `meal_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `meal_type`
+-- Dumping data for table `meal_type`
 --
 
 INSERT INTO `meal_type` (`meal_type_id`, `name`) VALUES
@@ -1899,7 +1899,7 @@ INSERT INTO `meal_type` (`meal_type_id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `nutritional_info`
+-- Table structure for table `nutritional_info`
 --
 
 CREATE TABLE `nutritional_info` (
@@ -1911,7 +1911,7 @@ CREATE TABLE `nutritional_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `nutritional_info`
+-- Dumping data for table `nutritional_info`
 --
 
 INSERT INTO `nutritional_info` (`recipe_id`, `fat_per_serving`, `protein_per_serving`, `carbs_per_serving`, `calories_per_serving`) VALUES
@@ -1989,7 +1989,7 @@ INSERT INTO `nutritional_info` (`recipe_id`, `fat_per_serving`, `protein_per_ser
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `rating`
+-- Table structure for table `rating`
 --
 
 CREATE TABLE `rating` (
@@ -2000,7 +2000,7 @@ CREATE TABLE `rating` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `rating`
+-- Dumping data for table `rating`
 --
 
 INSERT INTO `rating` (`rating_id`, `judge_id`, `participant_id`, `rating`) VALUES
@@ -3808,7 +3808,7 @@ INSERT INTO `rating` (`rating_id`, `judge_id`, `participant_id`, `rating`) VALUE
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `recipe`
+-- Table structure for table `recipe`
 --
 
 CREATE TABLE `recipe` (
@@ -3824,7 +3824,7 @@ CREATE TABLE `recipe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `recipe`
+-- Dumping data for table `recipe`
 --
 
 INSERT INTO `recipe` (`recipe_id`, `name`, `difficulty`, `description`, `base_id`, `recipe_type`, `cuisine_id`, `image_id`, `time_id`) VALUES
@@ -3902,7 +3902,7 @@ INSERT INTO `recipe` (`recipe_id`, `name`, `difficulty`, `description`, `base_id
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `recipe_chef`
+-- Table structure for table `recipe_chef`
 --
 
 CREATE TABLE `recipe_chef` (
@@ -3911,7 +3911,7 @@ CREATE TABLE `recipe_chef` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `recipe_chef`
+-- Dumping data for table `recipe_chef`
 --
 
 INSERT INTO `recipe_chef` (`recipe_id`, `chef_id`) VALUES
@@ -4519,7 +4519,7 @@ INSERT INTO `recipe_chef` (`recipe_id`, `chef_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `recipe_equipment`
+-- Table structure for table `recipe_equipment`
 --
 
 CREATE TABLE `recipe_equipment` (
@@ -4528,7 +4528,7 @@ CREATE TABLE `recipe_equipment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `recipe_equipment`
+-- Dumping data for table `recipe_equipment`
 --
 
 INSERT INTO `recipe_equipment` (`recipe_id`, `equipment_id`) VALUES
@@ -4879,7 +4879,7 @@ INSERT INTO `recipe_equipment` (`recipe_id`, `equipment_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `recipe_ingredient`
+-- Table structure for table `recipe_ingredient`
 --
 
 CREATE TABLE `recipe_ingredient` (
@@ -4889,7 +4889,7 @@ CREATE TABLE `recipe_ingredient` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `recipe_ingredient`
+-- Dumping data for table `recipe_ingredient`
 --
 
 INSERT INTO `recipe_ingredient` (`recipe_id`, `ingredient_id`, `quantity`) VALUES
@@ -5301,7 +5301,7 @@ INSERT INTO `recipe_ingredient` (`recipe_id`, `ingredient_id`, `quantity`) VALUE
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `recipe_label`
+-- Table structure for table `recipe_label`
 --
 
 CREATE TABLE `recipe_label` (
@@ -5310,7 +5310,7 @@ CREATE TABLE `recipe_label` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `recipe_label`
+-- Dumping data for table `recipe_label`
 --
 
 INSERT INTO `recipe_label` (`recipe_id`, `label_id`) VALUES
@@ -5721,7 +5721,7 @@ INSERT INTO `recipe_label` (`recipe_id`, `label_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `recipe_meal_type`
+-- Table structure for table `recipe_meal_type`
 --
 
 CREATE TABLE `recipe_meal_type` (
@@ -5730,7 +5730,7 @@ CREATE TABLE `recipe_meal_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `recipe_meal_type`
+-- Dumping data for table `recipe_meal_type`
 --
 
 INSERT INTO `recipe_meal_type` (`recipe_id`, `meal_type_id`) VALUES
@@ -5878,7 +5878,7 @@ INSERT INTO `recipe_meal_type` (`recipe_id`, `meal_type_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `recipe_section`
+-- Table structure for table `recipe_section`
 --
 
 CREATE TABLE `recipe_section` (
@@ -5887,7 +5887,7 @@ CREATE TABLE `recipe_section` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `recipe_section`
+-- Dumping data for table `recipe_section`
 --
 
 INSERT INTO `recipe_section` (`recipe_id`, `section_id`) VALUES
@@ -6077,7 +6077,7 @@ INSERT INTO `recipe_section` (`recipe_id`, `section_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `recipe_tips`
+-- Table structure for table `recipe_tips`
 --
 
 CREATE TABLE `recipe_tips` (
@@ -6086,7 +6086,7 @@ CREATE TABLE `recipe_tips` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `recipe_tips`
+-- Dumping data for table `recipe_tips`
 --
 
 INSERT INTO `recipe_tips` (`recipe_id`, `tips_id`) VALUES
@@ -6221,7 +6221,7 @@ INSERT INTO `recipe_tips` (`recipe_id`, `tips_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `sections`
+-- Table structure for table `sections`
 --
 
 CREATE TABLE `sections` (
@@ -6232,7 +6232,7 @@ CREATE TABLE `sections` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `sections`
+-- Dumping data for table `sections`
 --
 
 INSERT INTO `sections` (`section_id`, `name`, `description`, `image_id`) VALUES
@@ -6260,7 +6260,7 @@ INSERT INTO `sections` (`section_id`, `name`, `description`, `image_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `steps`
+-- Table structure for table `steps`
 --
 
 CREATE TABLE `steps` (
@@ -6274,7 +6274,7 @@ CREATE TABLE `steps` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `steps`
+-- Dumping data for table `steps`
 --
 
 INSERT INTO `steps` (`steps_id`, `recipe_id`, `equipment_id`, `sequence_order`, `step_description`, `amount`, `image_id`) VALUES
@@ -6536,7 +6536,7 @@ INSERT INTO `steps` (`steps_id`, `recipe_id`, `equipment_id`, `sequence_order`, 
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `time`
+-- Table structure for table `time`
 --
 
 CREATE TABLE `time` (
@@ -6546,7 +6546,7 @@ CREATE TABLE `time` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `time`
+-- Dumping data for table `time`
 --
 
 INSERT INTO `time` (`new_time_id`, `preparation_time`, `cooking_time`) VALUES
@@ -6594,7 +6594,7 @@ INSERT INTO `time` (`new_time_id`, `preparation_time`, `cooking_time`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `tips`
+-- Table structure for table `tips`
 --
 
 CREATE TABLE `tips` (
@@ -6603,7 +6603,7 @@ CREATE TABLE `tips` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `tips`
+-- Dumping data for table `tips`
 --
 
 INSERT INTO `tips` (`tips_id`, `tips_description`) VALUES
@@ -6681,7 +6681,7 @@ INSERT INTO `tips` (`tips_id`, `tips_description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -6693,7 +6693,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Άδειασμα δεδομένων του πίνακα `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `image_id`, `is_admin`) VALUES
@@ -6770,18 +6770,18 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `image_id`, `is_admin`) 
 (72, 'admin', 'adminpassword', NULL, 1);
 
 --
--- Ευρετήρια για άχρηστους πίνακες
+-- Indexes for dumped tables
 --
 
 --
--- Ευρετήρια για πίνακα `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Ευρετήρια για πίνακα `chef`
+-- Indexes for table `chef`
 --
 ALTER TABLE `chef`
   ADD PRIMARY KEY (`chef_id`),
@@ -6791,14 +6791,14 @@ ALTER TABLE `chef`
   ADD KEY `age` (`age`);
 
 --
--- Ευρετήρια για πίνακα `chef_cuisines`
+-- Indexes for table `chef_cuisines`
 --
 ALTER TABLE `chef_cuisines`
   ADD KEY `chef_id` (`chef_id`),
   ADD KEY `cuisine_id` (`cuisine_id`);
 
 --
--- Ευρετήρια για πίνακα `competitionparticipants`
+-- Indexes for table `competitionparticipants`
 --
 ALTER TABLE `competitionparticipants`
   ADD PRIMARY KEY (`participant_id`),
@@ -6808,7 +6808,7 @@ ALTER TABLE `competitionparticipants`
   ADD KEY `judge_id` (`judge_id`);
 
 --
--- Ευρετήρια για πίνακα `cuisines`
+-- Indexes for table `cuisines`
 --
 ALTER TABLE `cuisines`
   ADD PRIMARY KEY (`cuisine_id`),
@@ -6816,7 +6816,7 @@ ALTER TABLE `cuisines`
   ADD KEY `image_id` (`image_id`);
 
 --
--- Ευρετήρια για πίνακα `episode`
+-- Indexes for table `episode`
 --
 ALTER TABLE `episode`
   ADD PRIMARY KEY (`episode_id`),
@@ -6824,7 +6824,7 @@ ALTER TABLE `episode`
   ADD KEY `date` (`date`);
 
 --
--- Ευρετήρια για πίνακα `equipment`
+-- Indexes for table `equipment`
 --
 ALTER TABLE `equipment`
   ADD PRIMARY KEY (`equipment_id`),
@@ -6832,7 +6832,7 @@ ALTER TABLE `equipment`
   ADD KEY `image_id` (`image_id`);
 
 --
--- Ευρετήρια για πίνακα `food_category`
+-- Indexes for table `food_category`
 --
 ALTER TABLE `food_category`
   ADD PRIMARY KEY (`food_category_id`),
@@ -6840,13 +6840,13 @@ ALTER TABLE `food_category`
   ADD KEY `image_id` (`image_id`);
 
 --
--- Ευρετήρια για πίνακα `images`
+-- Indexes for table `images`
 --
 ALTER TABLE `images`
   ADD PRIMARY KEY (`image_id`);
 
 --
--- Ευρετήρια για πίνακα `ingredients`
+-- Indexes for table `ingredients`
 --
 ALTER TABLE `ingredients`
   ADD PRIMARY KEY (`ingredient_id`),
@@ -6855,7 +6855,7 @@ ALTER TABLE `ingredients`
   ADD KEY `image_id` (`image_id`);
 
 --
--- Ευρετήρια για πίνακα `judges`
+-- Indexes for table `judges`
 --
 ALTER TABLE `judges`
   ADD PRIMARY KEY (`judge_id`),
@@ -6863,27 +6863,27 @@ ALTER TABLE `judges`
   ADD KEY `episode_id` (`episode_id`);
 
 --
--- Ευρετήρια για πίνακα `label`
+-- Indexes for table `label`
 --
 ALTER TABLE `label`
   ADD PRIMARY KEY (`label_id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Ευρετήρια για πίνακα `meal_type`
+-- Indexes for table `meal_type`
 --
 ALTER TABLE `meal_type`
   ADD PRIMARY KEY (`meal_type_id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Ευρετήρια για πίνακα `nutritional_info`
+-- Indexes for table `nutritional_info`
 --
 ALTER TABLE `nutritional_info`
   ADD UNIQUE KEY `recipe_id` (`recipe_id`) USING BTREE;
 
 --
--- Ευρετήρια για πίνακα `rating`
+-- Indexes for table `rating`
 --
 ALTER TABLE `rating`
   ADD PRIMARY KEY (`rating_id`),
@@ -6891,7 +6891,7 @@ ALTER TABLE `rating`
   ADD KEY `participant_id` (`participant_id`);
 
 --
--- Ευρετήρια για πίνακα `recipe`
+-- Indexes for table `recipe`
 --
 ALTER TABLE `recipe`
   ADD PRIMARY KEY (`recipe_id`),
@@ -6902,28 +6902,28 @@ ALTER TABLE `recipe`
   ADD KEY `time_id` (`time_id`);
 
 --
--- Ευρετήρια για πίνακα `recipe_chef`
+-- Indexes for table `recipe_chef`
 --
 ALTER TABLE `recipe_chef`
   ADD KEY `recipe_id` (`recipe_id`),
   ADD KEY `chef_id` (`chef_id`);
 
 --
--- Ευρετήρια για πίνακα `recipe_equipment`
+-- Indexes for table `recipe_equipment`
 --
 ALTER TABLE `recipe_equipment`
   ADD KEY `recipe_id` (`recipe_id`),
   ADD KEY `equipment_id` (`equipment_id`);
 
 --
--- Ευρετήρια για πίνακα `recipe_ingredient`
+-- Indexes for table `recipe_ingredient`
 --
 ALTER TABLE `recipe_ingredient`
   ADD KEY `recipe_id` (`recipe_id`),
   ADD KEY `ingredient_id` (`ingredient_id`);
 
 --
--- Ευρετήρια για πίνακα `recipe_label`
+-- Indexes for table `recipe_label`
 --
 ALTER TABLE `recipe_label`
   ADD KEY `recipe_id` (`recipe_id`),
@@ -6931,28 +6931,28 @@ ALTER TABLE `recipe_label`
   ADD KEY `idx_recipe_label_recipe_id_label_id` (`recipe_id`,`label_id`);
 
 --
--- Ευρετήρια για πίνακα `recipe_meal_type`
+-- Indexes for table `recipe_meal_type`
 --
 ALTER TABLE `recipe_meal_type`
   ADD KEY `meal_type_id` (`meal_type_id`),
   ADD KEY `recipe_id` (`recipe_id`);
 
 --
--- Ευρετήρια για πίνακα `recipe_section`
+-- Indexes for table `recipe_section`
 --
 ALTER TABLE `recipe_section`
   ADD KEY `recipe_id` (`recipe_id`),
   ADD KEY `section_id` (`section_id`);
 
 --
--- Ευρετήρια για πίνακα `recipe_tips`
+-- Indexes for table `recipe_tips`
 --
 ALTER TABLE `recipe_tips`
   ADD KEY `recipe_id` (`recipe_id`),
   ADD KEY `tips_id` (`tips_id`);
 
 --
--- Ευρετήρια για πίνακα `sections`
+-- Indexes for table `sections`
 --
 ALTER TABLE `sections`
   ADD PRIMARY KEY (`section_id`),
@@ -6960,7 +6960,7 @@ ALTER TABLE `sections`
   ADD KEY `image_id` (`image_id`);
 
 --
--- Ευρετήρια για πίνακα `steps`
+-- Indexes for table `steps`
 --
 ALTER TABLE `steps`
   ADD PRIMARY KEY (`steps_id`),
@@ -6969,19 +6969,19 @@ ALTER TABLE `steps`
   ADD KEY `recipe_id` (`recipe_id`);
 
 --
--- Ευρετήρια για πίνακα `time`
+-- Indexes for table `time`
 --
 ALTER TABLE `time`
   ADD PRIMARY KEY (`new_time_id`);
 
 --
--- Ευρετήρια για πίνακα `tips`
+-- Indexes for table `tips`
 --
 ALTER TABLE `tips`
   ADD PRIMARY KEY (`tips_id`);
 
 --
--- Ευρετήρια για πίνακα `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
@@ -6989,149 +6989,149 @@ ALTER TABLE `users`
   ADD KEY `image_id` (`image_id`);
 
 --
--- AUTO_INCREMENT για άχρηστους πίνακες
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT για πίνακα `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT για πίνακα `chef`
+-- AUTO_INCREMENT for table `chef`
 --
 ALTER TABLE `chef`
   MODIFY `chef_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1931;
 
 --
--- AUTO_INCREMENT για πίνακα `competitionparticipants`
+-- AUTO_INCREMENT for table `competitionparticipants`
 --
 ALTER TABLE `competitionparticipants`
   MODIFY `participant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3197;
 
 --
--- AUTO_INCREMENT για πίνακα `cuisines`
+-- AUTO_INCREMENT for table `cuisines`
 --
 ALTER TABLE `cuisines`
   MODIFY `cuisine_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT για πίνακα `episode`
+-- AUTO_INCREMENT for table `episode`
 --
 ALTER TABLE `episode`
   MODIFY `episode_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
--- AUTO_INCREMENT για πίνακα `equipment`
+-- AUTO_INCREMENT for table `equipment`
 --
 ALTER TABLE `equipment`
   MODIFY `equipment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT για πίνακα `food_category`
+-- AUTO_INCREMENT for table `food_category`
 --
 ALTER TABLE `food_category`
   MODIFY `food_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT για πίνακα `images`
+-- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
   MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT για πίνακα `ingredients`
+-- AUTO_INCREMENT for table `ingredients`
 --
 ALTER TABLE `ingredients`
   MODIFY `ingredient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=511;
 
 --
--- AUTO_INCREMENT για πίνακα `judges`
+-- AUTO_INCREMENT for table `judges`
 --
 ALTER TABLE `judges`
   MODIFY `judge_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=697;
 
 --
--- AUTO_INCREMENT για πίνακα `label`
+-- AUTO_INCREMENT for table `label`
 --
 ALTER TABLE `label`
   MODIFY `label_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT για πίνακα `meal_type`
+-- AUTO_INCREMENT for table `meal_type`
 --
 ALTER TABLE `meal_type`
   MODIFY `meal_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT για πίνακα `rating`
+-- AUTO_INCREMENT for table `rating`
 --
 ALTER TABLE `rating`
   MODIFY `rating_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8339;
 
 --
--- AUTO_INCREMENT για πίνακα `recipe`
+-- AUTO_INCREMENT for table `recipe`
 --
 ALTER TABLE `recipe`
   MODIFY `recipe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
--- AUTO_INCREMENT για πίνακα `sections`
+-- AUTO_INCREMENT for table `sections`
 --
 ALTER TABLE `sections`
   MODIFY `section_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT για πίνακα `steps`
+-- AUTO_INCREMENT for table `steps`
 --
 ALTER TABLE `steps`
   MODIFY `steps_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=886;
 
 --
--- AUTO_INCREMENT για πίνακα `time`
+-- AUTO_INCREMENT for table `time`
 --
 ALTER TABLE `time`
   MODIFY `new_time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- AUTO_INCREMENT για πίνακα `tips`
+-- AUTO_INCREMENT for table `tips`
 --
 ALTER TABLE `tips`
   MODIFY `tips_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
--- AUTO_INCREMENT για πίνακα `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
--- Περιορισμοί για άχρηστους πίνακες
+-- Constraints for dumped tables
 --
 
 --
--- Περιορισμοί για πίνακα `admin`
+-- Constraints for table `admin`
 --
 ALTER TABLE `admin`
   ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
--- Περιορισμοί για πίνακα `chef`
+-- Constraints for table `chef`
 --
 ALTER TABLE `chef`
   ADD CONSTRAINT `chef_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `images` (`image_id`),
   ADD CONSTRAINT `chef_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
--- Περιορισμοί για πίνακα `chef_cuisines`
+-- Constraints for table `chef_cuisines`
 --
 ALTER TABLE `chef_cuisines`
   ADD CONSTRAINT `chef_cuisines_ibfk_1` FOREIGN KEY (`chef_id`) REFERENCES `chef` (`chef_id`),
   ADD CONSTRAINT `chef_cuisines_ibfk_2` FOREIGN KEY (`cuisine_id`) REFERENCES `cuisines` (`cuisine_id`);
 
 --
--- Περιορισμοί για πίνακα `competitionparticipants`
+-- Constraints for table `competitionparticipants`
 --
 ALTER TABLE `competitionparticipants`
   ADD CONSTRAINT `competitionparticipants_ibfk_1` FOREIGN KEY (`chef_id`) REFERENCES `chef` (`chef_id`),
@@ -7140,52 +7140,52 @@ ALTER TABLE `competitionparticipants`
   ADD CONSTRAINT `competitionparticipants_ibfk_5` FOREIGN KEY (`judge_id`) REFERENCES `judges` (`judge_id`);
 
 --
--- Περιορισμοί για πίνακα `cuisines`
+-- Constraints for table `cuisines`
 --
 ALTER TABLE `cuisines`
   ADD CONSTRAINT `cuisines_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `images` (`image_id`);
 
 --
--- Περιορισμοί για πίνακα `equipment`
+-- Constraints for table `equipment`
 --
 ALTER TABLE `equipment`
   ADD CONSTRAINT `equipment_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `images` (`image_id`);
 
 --
--- Περιορισμοί για πίνακα `food_category`
+-- Constraints for table `food_category`
 --
 ALTER TABLE `food_category`
   ADD CONSTRAINT `food_category_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `images` (`image_id`);
 
 --
--- Περιορισμοί για πίνακα `ingredients`
+-- Constraints for table `ingredients`
 --
 ALTER TABLE `ingredients`
   ADD CONSTRAINT `ingredients_ibfk_1` FOREIGN KEY (`food_category_id`) REFERENCES `food_category` (`food_category_id`),
   ADD CONSTRAINT `ingredients_ibfk_2` FOREIGN KEY (`image_id`) REFERENCES `images` (`image_id`);
 
 --
--- Περιορισμοί για πίνακα `judges`
+-- Constraints for table `judges`
 --
 ALTER TABLE `judges`
   ADD CONSTRAINT `judges_ibfk_1` FOREIGN KEY (`chef_id`) REFERENCES `chef` (`chef_id`),
   ADD CONSTRAINT `judges_ibfk_2` FOREIGN KEY (`episode_id`) REFERENCES `episode` (`episode_id`);
 
 --
--- Περιορισμοί για πίνακα `nutritional_info`
+-- Constraints for table `nutritional_info`
 --
 ALTER TABLE `nutritional_info`
   ADD CONSTRAINT `nutritional_info_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`recipe_id`);
 
 --
--- Περιορισμοί για πίνακα `rating`
+-- Constraints for table `rating`
 --
 ALTER TABLE `rating`
   ADD CONSTRAINT `rating_ibfk_1` FOREIGN KEY (`judge_id`) REFERENCES `judges` (`judge_id`),
   ADD CONSTRAINT `rating_ibfk_2` FOREIGN KEY (`participant_id`) REFERENCES `competitionparticipants` (`participant_id`);
 
 --
--- Περιορισμοί για πίνακα `recipe`
+-- Constraints for table `recipe`
 --
 ALTER TABLE `recipe`
   ADD CONSTRAINT `recipe_ibfk_1` FOREIGN KEY (`base_id`) REFERENCES `ingredients` (`ingredient_id`),
@@ -7194,62 +7194,62 @@ ALTER TABLE `recipe`
   ADD CONSTRAINT `recipe_ibfk_5` FOREIGN KEY (`time_id`) REFERENCES `time` (`new_time_id`);
 
 --
--- Περιορισμοί για πίνακα `recipe_chef`
+-- Constraints for table `recipe_chef`
 --
 ALTER TABLE `recipe_chef`
   ADD CONSTRAINT `recipe_chef_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`recipe_id`),
   ADD CONSTRAINT `recipe_chef_ibfk_2` FOREIGN KEY (`chef_id`) REFERENCES `chef` (`chef_id`);
 
 --
--- Περιορισμοί για πίνακα `recipe_equipment`
+-- Constraints for table `recipe_equipment`
 --
 ALTER TABLE `recipe_equipment`
   ADD CONSTRAINT `recipe_equipment_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`recipe_id`),
   ADD CONSTRAINT `recipe_equipment_ibfk_2` FOREIGN KEY (`equipment_id`) REFERENCES `equipment` (`equipment_id`);
 
 --
--- Περιορισμοί για πίνακα `recipe_ingredient`
+-- Constraints for table `recipe_ingredient`
 --
 ALTER TABLE `recipe_ingredient`
   ADD CONSTRAINT `recipe_ingredient_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`recipe_id`),
   ADD CONSTRAINT `recipe_ingredient_ibfk_2` FOREIGN KEY (`ingredient_id`) REFERENCES `ingredients` (`ingredient_id`);
 
 --
--- Περιορισμοί για πίνακα `recipe_label`
+-- Constraints for table `recipe_label`
 --
 ALTER TABLE `recipe_label`
   ADD CONSTRAINT `recipe_label_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`recipe_id`),
   ADD CONSTRAINT `recipe_label_ibfk_2` FOREIGN KEY (`label_id`) REFERENCES `label` (`label_id`);
 
 --
--- Περιορισμοί για πίνακα `recipe_meal_type`
+-- Constraints for table `recipe_meal_type`
 --
 ALTER TABLE `recipe_meal_type`
   ADD CONSTRAINT `recipe_meal_type_ibfk_1` FOREIGN KEY (`meal_type_id`) REFERENCES `meal_type` (`meal_type_id`),
   ADD CONSTRAINT `recipe_meal_type_ibfk_2` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`recipe_id`);
 
 --
--- Περιορισμοί για πίνακα `recipe_section`
+-- Constraints for table `recipe_section`
 --
 ALTER TABLE `recipe_section`
   ADD CONSTRAINT `recipe_section_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`recipe_id`),
   ADD CONSTRAINT `recipe_section_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `sections` (`section_id`);
 
 --
--- Περιορισμοί για πίνακα `recipe_tips`
+-- Constraints for table `recipe_tips`
 --
 ALTER TABLE `recipe_tips`
   ADD CONSTRAINT `recipe_tips_ibfk_1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`recipe_id`),
   ADD CONSTRAINT `recipe_tips_ibfk_2` FOREIGN KEY (`tips_id`) REFERENCES `tips` (`tips_id`);
 
 --
--- Περιορισμοί για πίνακα `sections`
+-- Constraints for table `sections`
 --
 ALTER TABLE `sections`
   ADD CONSTRAINT `sections_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `images` (`image_id`);
 
 --
--- Περιορισμοί για πίνακα `steps`
+-- Constraints for table `steps`
 --
 ALTER TABLE `steps`
   ADD CONSTRAINT `steps_ibfk_2` FOREIGN KEY (`equipment_id`) REFERENCES `equipment` (`equipment_id`),
@@ -7257,7 +7257,7 @@ ALTER TABLE `steps`
   ADD CONSTRAINT `steps_ibfk_4` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`recipe_id`);
 
 --
--- Περιορισμοί για πίνακα `users`
+-- Constraints for table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `images` (`image_id`);
